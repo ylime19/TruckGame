@@ -21,7 +21,7 @@ class Level:
         self.timeout = 20000  # 20 segundos
 
     def run(self, ):
-        pygame.mixer_music.load(f'./asset/{self.name}.wav')
+        pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.play(-1)
         clok = pygame.time.Clock()
         while True:
