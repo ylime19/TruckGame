@@ -3,11 +3,26 @@ COLOR_ORANGE = (255, 128, 0)
 COLOR_PINK = (255, 2, 117)
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
+COLOR_ROSA = (255, 191, 247)
+
+# E
+ENTITY_SPEED = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 1,
+    'Level1Bg2': 2,
+    'Level1Bg3': 3,
+    'Level1Bg4': 4,
+    'Level1Bg5': 5,
+    'Level1Bg6': 6,
+}
+
+
 
 # M
-MENU_OPTION = ('NEW GAME',
+MENU_OPTION = ('NOVO JOGO',
+               'CONTINUAR JOGO',
                'SCORE',
-               'EXIT')
+               'SAIR')
 
 
 # W
