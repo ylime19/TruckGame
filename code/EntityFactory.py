@@ -22,4 +22,4 @@ class EntityFactory:
             case 'Player1':
                 return Player('Player1', (10, WIN_HEIGHT/ 2 - 10))  # Agora passa a janela corretamente
             case 'Inimigo1':
-                return Enemy('Inimigo1', (WIN_WIDTH + 10, random.randint(0, WIN_HEIGHT) ))
+                return Enemy('Inimigo1', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT -40) ))
