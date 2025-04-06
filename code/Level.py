@@ -6,7 +6,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY
+from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, COLOR_GREEN, COLOR_PINK
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
@@ -24,7 +24,6 @@ class Level:
         self.entity_list.append(EntityFactory.get_entity('Player1', self.window))
         self.timeout = 20000  # 20 segundos
         pygame.time.set_timer(EVENT_ENEMY, 2000)
-
 
     def run(self, ):
         pygame.mixer_music.load(f'./asset/{self.name}.wav')
@@ -49,8 +48,8 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
-                        print(f"Adicionado: {shoot.name}, pos: {shoot.rect.topleft}")
-
+                if ent.name == 'Player1':
+                    self.level_text(14, f'Player - Health: {ent.health} | Score: {ent.score}', COLOR_PINK, (10, 25))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()

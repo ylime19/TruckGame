@@ -6,9 +6,55 @@ COLOR_PINK = (255, 2, 117)
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 COLOR_ROSA = (255, 191, 247)
+COLOR_GREEN = (0, 128, 0)
+COLOR_CYAN = (0, 128, 128)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
+
+ENTITY_DAMAGE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Leve21Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Level2Bg5': 0,
+    'Level2Bg6': 0,
+    'Player1': 1,
+    'Player1Shoot':25,
+    'Inimigo1': 1,
+    'Inimigo1Shoot': 20,
+
+}
+
+ENTITY_SCORE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Leve21Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Level2Bg5': 0,
+    'Level2Bg6': 0,
+    'Player1': 0,
+    'Player1Shoot':0,
+    'Inimigo1': 100,
+    'Inimigo1Shoot': 0,
+
+}
 
 ENTITY_SPEED = {
     'Level1Bg0': 0,
