@@ -1,15 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import pygame.key
-from pygame.examples.grid import WINDOW_WIDTH
 
-from code.Const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH
+from code.Const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH, PLAYER_KEY_SHOOT, ENTITY_SHOOT_DELAY
 from code.Entity import Entity
+from code.PlayerShoot import PlayerShoot
 
 
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
-        super().__init__(name, (50, 0))
+        super().__init__(name, position)
+        self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
 
         player_width = WIN_WIDTH // 8 # 12.5% da largura da tela
         player_height = WIN_HEIGHT // 4  # 25% da altura da tela
@@ -42,7 +43,21 @@ class Player(Entity):
         if pressed_key[pygame.K_LEFT] and self.rect.left > 0:
             self.rect.centerx -= ENTITY_SPEED[self.name]
 
-        if pressed_key[pygame.K_RIGHT] and self.rect.right < WINDOW_WIDTH:
+        if pressed_key[pygame.K_RIGHT] and self.rect.right < WIN_WIDTH:
             self.rect.centerx += ENTITY_SPEED[self.name]
 
         pass
+
+    def shoot(self):
+        keys = pygame.key.get_pressed()
+        self.shoot_delay -= 1
+        if keys[PLAYER_KEY_SHOOT[self.name]] and self.shoot_delay <= 0:
+            self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
+            return PlayerShoot(name='Player1Shoot', position=(self.rect.right, self.rect.centery))
+        return None
+
+    # self.shoot_delay -= 1
+       # if self.shoot_delay == 0:
+       # pressed_key = pygame.key.get_pressed()
+       #  if pressed_key[PLAYER_KEY_SHOOT[self.name]]:
+       #    return PlayerShoot(name=f'{self.name}Shoot', position=(self.rect.centerx, self.rect.centery))

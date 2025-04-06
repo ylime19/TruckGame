@@ -10,6 +10,8 @@ from code.Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
+from code.Enemy import Enemy
+from code.player import Player
 
 
 class Level:
@@ -30,15 +32,33 @@ class Level:
         clok = pygame.time.Clock()
         while True:
             clok.tick(60)
-            for ent in self.entity_list:
-                self.window.blit(source=ent.surf, dest=ent.rect)
+            # Separar entidades por tipo
+            backgrounds = [e for e in self.entity_list if e.name.startswith("Level1Bg")]
+            others = [e for e in self.entity_list if not e.name.startswith("Level1Bg")]
+
+            # Desenhar planos de fundo primeiro
+            for bg in backgrounds:
+                self.window.blit(bg.surf, bg.rect)
+                bg.move()
+
+            # Desenhar o resto depois (tiros, inimigos, jogador)
+            for ent in others[:]:  # copiar pra evitar problemas ao adicionar tiros
+                self.window.blit(ent.surf, ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+                        print(f"Adicionado: {shoot.name}, pos: {shoot.rect.topleft}")
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == EVENT_ENEMY:
-                    self.entity_list.append(EntityFactory.get_entity('Inimigo1'))
+                    enemy_count = sum(isinstance(ent, Enemy) for ent in self.entity_list)
+                    if enemy_count < 4:
+                        self.entity_list.append(EntityFactory.get_entity('Inimigo1'))
 
             # printed text
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', COLOR_WHITE, (10, 5))

@@ -19,7 +19,9 @@ ENTITY_SPEED = {
     'Level1Bg5': 5,
     'Level1Bg6': 6,
     'Player1': 3,
-    'Inimigo1': 2,
+    'Player1Shoot': 10,
+    'Inimigo1': 1,
+    'Inimigo1Shoot': 2,
 }
 
 ENTITY_HEALTH = {
@@ -31,8 +33,24 @@ ENTITY_HEALTH = {
     'Level1Bg5': 999,
     'Level1Bg6': 999,
     'Player1': 300,
+    'Player1Shoot': 1,
     'Inimigo1': 100,
+    'Inimigo1Shoot': 1,
 }
+
+ENTITY_SHOOT_DELAY ={
+    'Player1': 20,
+    'Inimigo1': 200,
+
+}
+
+ENTITY_SIZE = {
+    'Player1': (48, 48),
+    'Player1Shoot': (56, 13),
+    'Inimigo1': (50, 50),
+    'Inimigo1Shoot': (20, 10),
+}
+
 
 # M
 MENU_OPTION = ('NOVO JOGO',
@@ -45,7 +63,7 @@ PLAYER_KEY_UP = {'Player1': pygame.K_UP}
 PLAYER_KEY_DOWN = {'Player1': pygame.K_DOWN}
 PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT}
 PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT}
-PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL}
+PLAYER_KEY_SHOOT = {'Player1': pygame.K_SPACE}
 
 
 # W

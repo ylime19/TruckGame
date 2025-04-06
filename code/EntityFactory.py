@@ -4,7 +4,7 @@ import random
 
 from code.Const import WIN_WIDTH, WIN_HEIGHT
 from code.background import Background
-from code.enemy import Enemy
+from code.Enemy import Enemy
 from code.player import Player
 
 
