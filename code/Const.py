@@ -29,7 +29,7 @@ ENTITY_DAMAGE = {
     'Level2Bg5': 0,
     'Level2Bg6': 0,
     'Player1': 1,
-    'Player1Shoot':25,
+    'Player1Shoot': 25,
     'Inimigo1': 1,
     'Inimigo1Shoot': 20,
 
@@ -51,7 +51,7 @@ ENTITY_SCORE = {
     'Level2Bg5': 0,
     'Level2Bg6': 0,
     'Player1': 0,
-    'Player1Shoot':0,
+    'Player1Shoot': 0,
     'Inimigo1': 100,
     'Inimigo1Shoot': 0,
 
@@ -99,7 +99,7 @@ ENTITY_HEALTH = {
     'Inimigo1Shoot': 1,
 }
 
-ENTITY_SHOOT_DELAY ={
+ENTITY_SHOOT_DELAY = {
     'Player1': 20,
     'Inimigo1': 200,
 
@@ -111,7 +111,6 @@ ENTITY_SIZE = {
     'Inimigo1': (50, 50),
     'Inimigo1Shoot': (20, 10),
 }
-
 
 # M
 MENU_OPTION = ('NOVO JOGO',
@@ -130,9 +129,26 @@ PLAYER_KEY_SHOOT = {'Player1': pygame.K_SPACE}
 SPAWN_TIME = 3000
 
 # T
-TIMEOUT_STEP = 100 #100ms
-TIMEOUT_LEVEL = 20000 #20s
+TIMEOUT_STEP = 100  # 100ms
+TIMEOUT_LEVEL = 20000  # 20s
 
 # W
 WIN_WIDTH = 576
 WIN_HEIGHT = 324
+
+# S
+SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
+             'EnterName': (WIN_WIDTH / 2, 80),
+             'Label': (WIN_WIDTH / 2, 90),
+             'Name': (WIN_WIDTH / 2, 110),
+             0: (WIN_WIDTH / 2, 110),
+             1: (WIN_WIDTH / 2, 130),
+             2: (WIN_WIDTH / 2, 150),
+             3: (WIN_WIDTH / 2, 170),
+             4: (WIN_WIDTH / 2, 190),
+             5: (WIN_WIDTH / 2, 210),
+             6: (WIN_WIDTH / 2, 230),
+             7: (WIN_WIDTH / 2, 250),
+             8: (WIN_WIDTH / 2, 270),
+             9: (WIN_WIDTH / 2, 290),
+             }
